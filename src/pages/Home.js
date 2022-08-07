@@ -1,17 +1,19 @@
-import React from 'react'
-import Container from '@mui/material/Container'
+import { Container, CssBaseline } from '@mui/material'
 
-import Navbar from '../components/Navbar'
-import Random from '../components/Random'
+import Navbar from '../components/Navbar/Navbar'
+import RandomRecipes from '../components/RandomRecipes'
 import Footer from '../components/Footer'
 
 function Home() {
   return (
-    <Container maxWidth="xl">
+    <>
+      <CssBaseline />
       <Navbar />
-      <Random />
+      <main>
+        <RandomRecipes />
+      </main>
       <Footer />
-    </Container>
+    </>
   )
 }
 
