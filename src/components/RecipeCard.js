@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   Card,
   CardActions,
@@ -7,15 +8,10 @@ import {
   Typography,
 } from '@mui/material'
 
-function RecipeCard(props) {
+function RecipeCard({ image, title, id, dishTypes }) {
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      <CardMedia
-        component="img"
-        height="200"
-        image={props.image}
-        alt={props.title}
-      />
+      <CardMedia component="img" height="200" image={image} alt={title} />
       <CardContent>
         <Typography
           variant="h6"
@@ -23,15 +19,17 @@ function RecipeCard(props) {
           gutterBottom
           sx={{ height: 50, pb: 6 }}
         >
-          {props.title}
+          {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {props.dishTypes}
+          {dishTypes}
         </Typography>
       </CardContent>
       <CardActions>
         <Button size="small" sx={{ ml: 1 }}>
-          Learn More
+          <Link to={`/recipe/${id}`} className="action">
+            Learn More
+          </Link>
         </Button>
       </CardActions>
     </Card>

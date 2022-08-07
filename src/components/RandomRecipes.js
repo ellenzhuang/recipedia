@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Box, Container, Grid, Typography } from '@mui/material'
 
 import RecipeCard from './RecipeCard'
+import SPOONACULAR_API_KEY from '../api/Spoonacular'
 
 function RandomRecipes() {
   const [random, setRandom] = useState([])
@@ -11,7 +12,6 @@ function RandomRecipes() {
   }, [])
 
   const getRandom = async () => {
-    const SPOONACULAR_API_KEY = process.env.REACT_APP_SPOONACULAR_API_KEY
     const response = await fetch(
       `https://api.spoonacular.com/recipes/random?apiKey=${SPOONACULAR_API_KEY}&number=6`
     )
@@ -44,7 +44,11 @@ function RandomRecipes() {
           {random.map((recipe) => {
             return (
               <Grid item xs={12} sm={6} md={4} key={recipe.id}>
-                <RecipeCard image={recipe.image} title={recipe.title} />
+                <RecipeCard
+                  id={recipe.id}
+                  image={recipe.image}
+                  title={recipe.title}
+                />
               </Grid>
             )
           })}

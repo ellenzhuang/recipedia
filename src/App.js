@@ -5,7 +5,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Nav from './components/Nav/Nav'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-import Recipes from './pages/Recipes'
 import RecipeDetail from './pages/RecipeDetail'
 import NotFound from './pages/NotFound'
 
@@ -19,9 +18,7 @@ function App() {
         <Nav />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/recipes" element={<Recipes />}>
-            <Route path=":recipeID" element={<RecipeDetail />} />
-          </Route>
+          <Route path="/recipe/:recipeID" element={<RecipeDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
