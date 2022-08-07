@@ -30,7 +30,7 @@ function RecipeCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" sx={{ pl: 1 }}>
+        <Button size="small" sx={{ ml: 1 }}>
           Learn More
         </Button>
       </CardActions>

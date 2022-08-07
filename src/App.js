@@ -1,20 +1,32 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { CssBaseline } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+
+import Nav from './components/Nav/Nav'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Recipes from './pages/Recipes'
-import RecipeDetails from './pages/RecipeDetails'
+import RecipeDetail from './pages/RecipeDetail'
 import NotFound from './pages/NotFound'
+
+const theme = createTheme()
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/recipes" element={<Recipes />}>
-          <Route path=":recipeID" element={<RecipeDetails />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <CssBaseline />
+        <Nav />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/recipes" element={<Recipes />}>
+            <Route path=":recipeID" element={<RecipeDetail />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 

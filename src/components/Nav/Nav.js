@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   AppBar,
   Box,
@@ -15,9 +16,9 @@ import LunchDiningIcon from '@mui/icons-material/LunchDining'
 
 import SearchBar from './SearchBar'
 
-const pages = ['Recipes', 'Meal Plan']
+const pages = ['Recipes', 'MealPlan']
 
-function NavBar() {
+function Nav() {
   const [anchorElNav, setAnchorElNav] = useState(null)
 
   const handleOpenNavMenu = (event) => {
@@ -52,7 +53,6 @@ function NavBar() {
           >
             RECIPEDIA
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -84,11 +84,19 @@ function NavBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link
+                      style={{ textDecoration: 'none', color: 'white' }}
+                      to={`/${page}`}
+                    >
+                      {page}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+
           <LunchDiningIcon
             sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
           />
@@ -117,7 +125,12 @@ function NavBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link
+                  style={{ textDecoration: 'none', color: 'white' }}
+                  to={`/${page}`}
+                >
+                  {page}
+                </Link>
               </Button>
             ))}
           </Box>
@@ -128,4 +141,4 @@ function NavBar() {
     </AppBar>
   )
 }
-export default NavBar
+export default Nav

@@ -1,4 +1,4 @@
-function RecipeDetails() {
+function RecipeDetail() {
   return (
     <div>
       <h1>RecipeDetails</h1>
@@ -6,4 +6,4 @@ function RecipeDetails() {
   )
 }
 
-export default RecipeDetails
+export default RecipeDetail
