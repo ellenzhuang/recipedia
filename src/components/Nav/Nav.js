@@ -13,10 +13,9 @@ import {
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import LunchDiningIcon from '@mui/icons-material/LunchDining'
-
 import SearchBar from './SearchBar'
 
-const pages = ['Recipes', 'MealPlan']
+const pages = ['meal-plan']
 
 function Nav() {
   const [anchorElNav, setAnchorElNav] = useState(null)
@@ -134,8 +133,7 @@ function Nav() {
               </Button>
             ))}
           </Box>
-
-          <SearchBar />
+          {/* <SearchBar /> */}
         </Toolbar>
       </Container>
     </AppBar>

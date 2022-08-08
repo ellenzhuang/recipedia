@@ -18,7 +18,7 @@ function RecipeCard({ id, title, image }) {
           variant="h6"
           component="div"
           gutterBottom
-          sx={{ height: 50, pb: 6 }}
+          sx={{ height: 60, pb: 6 }}
         >
           {title}
         </Typography>

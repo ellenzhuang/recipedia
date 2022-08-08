@@ -23,8 +23,7 @@ function RandomRecipes({ heading, subHeading, loadingNumber, tags }) {
     <Box
       sx={{
         bgcolor: 'background.paper',
-        pt: 6,
-        pb: 6,
+        py: 6,
       }}
     >
       <Container>
@@ -33,7 +32,7 @@ function RandomRecipes({ heading, subHeading, loadingNumber, tags }) {
         </Typography>
         <Typography
           component="p"
-          variant="subtitle"
+          variant="subtitle1"
           gutterBottom
           sx={{ pb: 4 }}
         >
