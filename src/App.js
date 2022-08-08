@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Nav from './components/Nav/Nav'
 import Footer from './components/Footer'
-import Home from './pages/Home'
+import Homepage from './pages/Homepage'
 import RecipeDetail from './pages/RecipeDetail'
 import NotFound from './pages/NotFound'
 
@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Homepage />} />
         <Route path="/recipe/:recipeID" element={<RecipeDetail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

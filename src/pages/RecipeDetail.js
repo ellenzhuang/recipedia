@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-
 import SPOONACULAR_API_KEY from '../api/Spoonacular'
 
 function RecipeDetail() {

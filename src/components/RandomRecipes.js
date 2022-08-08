@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react'
 import { Box, Container, Grid, Typography } from '@mui/material'
-
 import RecipeCard from './RecipeCard'
 import SPOONACULAR_API_KEY from '../api/Spoonacular'
 
-function RandomRecipes() {
+function RandomRecipes({ heading, subHeading, loadingNumber, tags }) {
   const [random, setRandom] = useState([])
 
   useEffect(() => {
-    getRandom()
-  }, [])
-
-  const getRandom = async () => {
-    const response = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${SPOONACULAR_API_KEY}&number=6`
-    )
-    const data = await response.json()
-    setRandom(data.recipes)
-  }
+    const url = `https://api.spoonacular.com/recipes/random?apiKey=${SPOONACULAR_API_KEY}&number=${loadingNumber}&tags=${tags}`
+    fetch(url)
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        console.log(data)
+        setRandom(data.recipes)
+      })
+      .catch((error) => console.log(error.message))
+  }, [tags, loadingNumber])
 
   return (
     <Box
@@ -29,7 +29,7 @@ function RandomRecipes() {
     >
       <Container>
         <Typography component="h1" variant="h5" gutterBottom>
-          Get some inspiration!
+          {heading}
         </Typography>
         <Typography
           component="p"
@@ -37,8 +37,7 @@ function RandomRecipes() {
           gutterBottom
           sx={{ pb: 4 }}
         >
-          If you have no idea of what to cook, you can get some inspiration
-          here!
+          {subHeading}
         </Typography>
         <Grid container spacing={4} justify="center">
           {random.map((recipe) => {
