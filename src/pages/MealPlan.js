@@ -1,7 +1,11 @@
-import React from 'react'
+import { Typography } from '@mui/material'
 
 function MealPlan() {
-  return <div>MealPlan</div>
+  return (
+    <main>
+      <Typography variant="h1">Meal Plan</Typography>
+    </main>
+  )
 }
 
 export default MealPlan

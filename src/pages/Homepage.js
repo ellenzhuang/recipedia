@@ -1,22 +1,22 @@
-import RandomRecipes from '../components/RandomRecipes'
+import Recipes from '../components/Recipes'
 
 function Homepage() {
   return (
     <main>
-      <RandomRecipes
+      <Recipes
         heading="Get Inspired!"
         subHeading="If you have no idea of what to cook, you can get some
           inspiration here!"
         loadingNumber="6"
         tags=""
       />
-      <RandomRecipes
+      <Recipes
         heading="Vegetarian"
         subHeading="123!"
         loadingNumber="6"
         tags="vegetarian"
       />
-      <RandomRecipes
+      <Recipes
         heading="Dinner"
         subHeading="456!"
         loadingNumber="6"

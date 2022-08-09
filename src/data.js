@@ -405,8 +405,8 @@ const data = {
   imageType: 'jpg',
   summary:
     'This recipe serves 12 and costs $1.03 per serving. One serving contains <b>429 calories</b>, <b>5g of protein</b>, and <b>27g of fat</b>. This recipe is liked by 11 foodies and cooks. A mixture of powdered sugar, cocoa powder, gelatin, and a handful of other ingredients are all it takes to make this recipe so tasty. From preparation to the plate, this recipe takes around <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 23%</b>. This score is rather bad. Try <a href="https://spoonacular.com/recipes/black-forest-mini-cheesecakes-50091">Black Forest Mini Cheesecakes</a>, <a href="https://spoonacular.com/recipes/mini-black-forest-cheesecakes-50081">Mini Black Forest Cheesecakes</a>, and <a href="https://spoonacular.com/recipes/mini-black-forest-cheesecakes-588835">Mini Black Forest Cheesecakes</a> for similar recipes.',
-  cuisines: [],
-  dishTypes: ['side dish'],
+  cuisines: ['Chinese', 'Korean'],
+  dishTypes: ['side dish', 'main course', 'dessert'],
   diets: [],
   occasions: [],
   winePairing: {

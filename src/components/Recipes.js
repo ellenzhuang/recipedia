@@ -3,8 +3,8 @@ import { Box, Container, Grid, Typography } from '@mui/material'
 import RecipeCard from './RecipeCard'
 import SPOONACULAR_API_KEY from '../api/Spoonacular'
 
-function RandomRecipes({ heading, subHeading, loadingNumber, tags }) {
-  const [random, setRandom] = useState([])
+function Recipes({ heading, subHeading, loadingNumber, tags }) {
+  const [recipes, setRecipes] = useState([])
 
   useEffect(() => {
     const url = `https://api.spoonacular.com/recipes/random?apiKey=${SPOONACULAR_API_KEY}&number=${loadingNumber}&tags=${tags}`
@@ -14,7 +14,7 @@ function RandomRecipes({ heading, subHeading, loadingNumber, tags }) {
       })
       .then((data) => {
         console.log(data)
-        setRandom(data.recipes)
+        setRecipes(data.recipes)
       })
       .catch((error) => console.log(error.message))
   }, [tags, loadingNumber])
@@ -39,7 +39,7 @@ function RandomRecipes({ heading, subHeading, loadingNumber, tags }) {
           {subHeading}
         </Typography>
         <Grid container spacing={4} justify="center">
-          {random.map((recipe) => {
+          {recipes.map((recipe) => {
             return (
               <Grid item xs={12} sm={6} md={4} key={recipe.id}>
                 <RecipeCard
@@ -56,4 +56,4 @@ function RandomRecipes({ heading, subHeading, loadingNumber, tags }) {
   )
 }
 
-export default RandomRecipes
+export default Recipes
