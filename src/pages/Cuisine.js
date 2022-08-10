@@ -11,15 +11,27 @@ function Cuisine() {
   const [recipes, setRecipes] = useState([])
   let { cuisineName } = useParams()
 
-  const getCuisine = async (name) => {
-    const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisineName}&apiKey=${SPOONACULAR_API_KEY}&number=24`
-    const response = await fetch(url)
-    const data = await response.json()
-    setRecipes(data.results)
-  }
+  // const getCuisine = async (name) => {
+  //   const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisineName}&apiKey=${SPOONACULAR_API_KEY}&number=24`
+  //   const response = await fetch(url)
+  //   const data = await response.json()
+  //   setRecipes(data.results)
+  // }
+
+  // useEffect(() => {
+  //   getCuisine(recipes)
+  // }, [cuisineName])
 
   useEffect(() => {
-    getCuisine(recipes)
+    const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisineName}&apiKey=${SPOONACULAR_API_KEY}&number=24`
+    fetch(url)
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        setRecipes(data.results)
+      })
+      .catch((error) => console.log(error.message))
   }, [cuisineName])
 
   return (
