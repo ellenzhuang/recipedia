@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography } from '@mui/material'
 import RecipeCard from './RecipeCard'
 import SPOONACULAR_API_KEY from '../api/Spoonacular'
 
-function Recipes({ heading, subHeading, loadingNumber, tags }) {
+function Inspiration({ heading, subHeading, loadingNumber, tags }) {
   const [recipes, setRecipes] = useState([])
 
   useEffect(() => {
@@ -13,7 +13,6 @@ function Recipes({ heading, subHeading, loadingNumber, tags }) {
         return response.json()
       })
       .then((data) => {
-        console.log(data)
         setRecipes(data.recipes)
       })
       .catch((error) => console.log(error.message))
@@ -56,4 +55,4 @@ function Recipes({ heading, subHeading, loadingNumber, tags }) {
   )
 }
 
-export default Recipes
+export default Inspiration

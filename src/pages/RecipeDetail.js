@@ -16,27 +16,22 @@ import {
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import SoupKitchenIcon from '@mui/icons-material/SoupKitchen'
 import SetMealIcon from '@mui/icons-material/SetMeal'
-import data from '../data.js'
+import SPOONACULAR_API_KEY from '../api/Spoonacular'
 
 function RecipeDetail() {
   const [recipe, setRecipe] = useState(null)
   let { recipeID } = useParams()
 
-  // useEffect(() => {
-  //   const url = `https://api.spoonacular.com/recipes/${recipeID}/information?apiKey=${SPOONACULAR_API_KEY}&includeNutrition=false`
-  //   fetch(url)
-  //     .then((response) => {
-  //       return response.json()
-  //     })
-  //     .then((data) => {
-  //       console.log(data)
-  //       setRecipe(data)
-  //     })
-  //     .catch((error) => console.log(error.message))
-  // }, [recipeID])
-
   useEffect(() => {
-    setRecipe(data)
+    const url = `https://api.spoonacular.com/recipes/${recipeID}/information?apiKey=${SPOONACULAR_API_KEY}&includeNutrition=false`
+    fetch(url)
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        setRecipe(data)
+      })
+      .catch((error) => console.log(error.message))
   }, [recipeID])
 
   if (!recipeID || !recipe) {
@@ -246,18 +241,6 @@ function RecipeDetail() {
                                 >
                                   <b>Step {step.number}:</b> {step.step}
                                 </Typography>
-                                {/* <div className="equipment-image">
-                                  {step.equipment.map((utensil) => {
-                                    return (
-                                      <img
-                                        src={`https://spoonacular.com/cdn/equipment_100x100/${utensil.image}`}
-                                        margin="10px"
-                                        alt={utensil.name}
-                                        key={utensil.id}
-                                      />
-                                    )
-                                  })}
-                                </div> */}
                               </div>
                             )
                           })}
@@ -276,11 +259,7 @@ function RecipeDetail() {
 }
 
 export function RecipeDetailEmpty() {
-  return (
-    <div className="RecipeDetail">
-      <p>No details found.</p>
-    </div>
-  )
+  return <Typography variant="body1">Loading...</Typography>
 }
 
 export default RecipeDetail

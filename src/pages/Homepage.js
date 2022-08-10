@@ -1,26 +1,16 @@
-import Recipes from '../components/Recipes'
+import Inspiration from '../components/Inspiration'
+import CategoryBar from '../components/CategoryBar'
 
 function Homepage() {
   return (
     <main>
-      <Recipes
+      <CategoryBar />
+      <Inspiration
         heading="Get Inspired!"
         subHeading="If you have no idea of what to cook, you can get some
           inspiration here!"
-        loadingNumber="6"
+        loadingNumber="24"
         tags=""
-      />
-      <Recipes
-        heading="Vegetarian"
-        subHeading="123!"
-        loadingNumber="6"
-        tags="vegetarian"
-      />
-      <Recipes
-        heading="Dinner"
-        subHeading="456!"
-        loadingNumber="6"
-        tags="dinner"
       />
     </main>
   )
